@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <a class="btn btn-outline-primary" href="/product/create">Create a product</a>
+            <table class="table table-striped table-bordered tabler-hover">
+                <thead>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Brand</th>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i < products.length; i++) { %>
+                        <tr>
+                            <td>
+                                <%= products[i].name %>
+                            </td>
+                            <td>
+                                <%= products[i].price %>
+                            </td>
+                            <td>
+                                <img src="data:<%= products[i].thumbnail.contentType %>;base64,<%= products[i].thumbnail.data %>"" style="height: 100px; width: 100px; object-fit: contain;" >
+                            </td>
+                            <td>
+                                <%= products[i].category.name %>
+                            </td>
+                            <td>
+                                <%= products[i].brand.name %>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" href="/product/edit/<%= products[i]._id %>">Edit</a>
+                                <a class="btn btn-danger" onclick="return confirm('Xác nhận xoá sản phẩm <%= products[i].name %>')" href="/product/delete/<%= products[i]._id %>">Delete</a>
+                            </td>
+                        </tr>
+                      <% } %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>
