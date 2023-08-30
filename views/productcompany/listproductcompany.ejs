@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>productcomapny</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section>
+        <div class="container">
+            <a class="btn btn-outline-primary" href="/productcompany/create">Create a productcomapny</a>
+            <table class="table table-striped table-bordered tabler-hover">
+                <thead>
+                    <th>ProductCode</th>
+                    <th>ProductName</th>
+                    <th>ProductData</th>
+                    <th>Quantity</th>
+                    <th>ProductStoreCode</th>
+                </thead> 
+                <tbody>
+                    <% productcompanys.forEach(e=>{  %>
+                        <tr>
+                            <td><%= e.ProductCode %></td>
+                            <td><%= e.ProductName %></td>
+                            <td><%= e.ProductData %></td>
+                            <td><%= e.ProductOriginPrice %></td>
+                            <td><%= e.Quantity %></td>
+                            <td><%= e.ProductStoreCode %></td>
+                            <td>
+                                <a onclick="return confirm('Xác nhận xoá sản phẩm <%= e.name %>')" href="/productcompany/delete/<%= e._id %>">Delete</a>
+                            </td>
+                        </tr>        
+                    <% }) %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+</html>

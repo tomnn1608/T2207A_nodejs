@@ -21,3 +21,5 @@ const brandrouter = require("./src/routes/brand.routes");
 app.use("/brand",brandrouter);
 const categoryrouter = require("./src/routes/category.routes");
 app.use("/category",categoryrouter);
+const productcompanyrouter = require("./src/routes/productcompany.routes");
+app.use("/productcompany",productcompanyrouter);
